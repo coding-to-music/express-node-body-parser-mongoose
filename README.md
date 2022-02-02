@@ -65,9 +65,33 @@ console.log('Listening to Port 8000');
 });
 ```
 
+Start nodemon
+
+```java
+nodemon
+```
+
+Output
+
+````java
+[nodemon] 2.0.15
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[nodemon] starting `node index.js`
+Listening to Port 8000
+```java
+
 When you start the server using the command npm start you will see Hello World!.
 
-Install and Connect Mongodb Database in Node.js
+```java
+http://localhost:8000/
+
+Hello World!
+```java
+
+# Install and Connect Mongodb Database in Node.js
+
 To use mongodb in our node.js project we should have MongoDB installed in our local machine or server(during deployment).
 
 First of all, Install mongodb from MongoDB’s official website.
@@ -78,7 +102,7 @@ After installing MongoDB, install mongoose which is an Object Data Modeling libr
 
 ```java
 npm i mongoose
-```
+````
 
 Now we will connect mongodb to node.js with the help of mongoose. Paste the code given below in index.js file.
 
@@ -88,7 +112,7 @@ var app = express();
 const mongoose = require('mongoose');
 //Routes
 app.get('/', function (req, res) {
-res.send('Hello World!');
+res.send('Hello World Again!');
 });
 //Database
 mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true});
@@ -100,6 +124,14 @@ console.log('Error', err);
 app.listen(8000, function () {
 console.log('Listening to Port 8000');
 });
+```
+
+```java
+Listening to Port 8000
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+Listening to Port 8000
+Database connected Successfully
 ```
 
 ## Create Models in MongoDB to manage tables or collections
@@ -164,6 +196,10 @@ console.log('Listening to Port 8000');
 ```
 
 Now send the post request to http://localhost:8000/add. If request success it will insert values to userSchema.
+
+http://localhost:8000/add
+
+Cannot GET /add
 
 That’s it we have learned how to use mongodb in node.js.
 
